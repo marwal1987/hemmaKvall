@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+  @apply h-screen w-screen flex flex-col items-center bg-gray-light ;
+}
+
+header {
+  @apply mx-auto bg-gray-dark text-gray-light w-screen flex justify-between items-center p-4;
+}
+
+header button {
+  @apply block lg:hidden text-gray-light;
+}
+
+header nav {
+  @apply lg:flex lg:items-center w-full lg:w-auto mt-4 lg:mt-0;
+}
+
+header ul {
+  @apply flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8;
+}
+
+header a {
+  @apply hover:underline;
+}
+
+h1 {
+  @apply xl:text-6xl lg:text-5xl md:text-4xl text-2xl font-bold text-center;
+}
+
+h2 {
+  @apply xl:text-4xl lg:text-3xl md:text-2xl text-xl font-bold text-center;
+}
+
+p {
+  @apply font-normal leading-relaxed text-center;
+}
+
+button {
+  @apply px-4 py-2 border-2 border-gray-light hover:border-gray-dark hover:bg-gray-light hover:text-gray-dark 
+  text-gray-light bg-gray-dark rounded-md;
+}
+
+footer {
+  @apply mx-auto  bg-gray-dark text-gray-light w-screen flex justify-between items-center p-4;
+}
+
