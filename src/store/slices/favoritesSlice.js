@@ -1,23 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = { favoritesList: [] };
+
 const favoritesSlice = createSlice({
   name: "favorites",
-  favoritesList: [],
+  initialState,
   reducers: {
-    addToFavorites: (state, action) => {
-      const movie = state.favoritesList.find(
-        (movie) => movie.id === action.payload.id,
-        state.favoritesList.push(movie));
+    addFavorite: (state, action) => {
+      const movieExists = state.favoritesList.find(
+        (movie) => movie.imdbID === action.payload.imdbID
+      );
+      if (!movieExists) {
+        state.favoritesList.push({ ...action.payload });
       }
     },
-    removeFromFavorites: (state, action) => {
+    removeFavorite: (state, action) => {
       state.favoritesList = state.favoritesList.filter(
-        (movie) => movie.id !== action.payload.id
+        (movie) => movie.imdbID !== action.payload.imdbID
       );
     },
   },
-);
+});
 
-export const { addToFavorites, removeFromFavorites } =
-favoritesSlice.actions;
+export const { addFavorite, removeFavorite } = favoritesSlice.actions;
 export default favoritesSlice.reducer;

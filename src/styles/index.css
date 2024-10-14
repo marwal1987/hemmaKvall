@@ -3,23 +3,15 @@
 @tailwind utilities;
 
 main {
-  @apply h-screen w-screen flex flex-col items-center bg-gray-light ;
+  @apply flex flex-col items-center;
 }
 
 header {
-  @apply mx-auto bg-gray-dark text-gray-light w-screen flex justify-between items-center p-4;
-}
-
-header button {
-  @apply block lg:hidden text-gray-light;
-}
-
-header nav {
-  @apply lg:flex lg:items-center w-full lg:w-auto mt-4 lg:mt-0;
+  @apply bg-gray-800 text-gray-200 w-svw flex justify-between items-center p-6 sticky top-0 z-20;
 }
 
 header ul {
-  @apply flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8;
+  @apply flex gap-6;
 }
 
 header a {
@@ -27,7 +19,7 @@ header a {
 }
 
 h1 {
-  @apply xl:text-6xl lg:text-5xl md:text-4xl text-2xl font-bold text-center;
+  @apply xl:text-7xl lg:text-6xl text-5xl font-bold text-center;
 }
 
 h2 {
@@ -35,15 +27,9 @@ h2 {
 }
 
 p {
-  @apply font-normal leading-relaxed text-center;
-}
-
-button {
-  @apply px-4 py-2 border-2 border-gray-light hover:border-gray-dark hover:bg-gray-light hover:text-gray-dark 
-  text-gray-light bg-gray-dark rounded-md;
+  @apply leading-relaxed text-center text-sm;
 }
 
 footer {
-  @apply mx-auto  bg-gray-dark text-gray-light w-screen flex justify-between items-center p-4;
+  @apply bg-gray-800 text-gray-200 w-svw flex justify-between items-center p-6;
 }
-

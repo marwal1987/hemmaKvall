@@ -1,16 +1,14 @@
+import ReactDOM from "react-dom/client";
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import App from "./App.jsx";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import App from "./App";
 import "./styles/index.css";
 
-createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Header />
-    <main>
+    <Provider store={store}>
       <App />
-    </main>
-    <Footer />
+    </Provider>
   </StrictMode>
 );
