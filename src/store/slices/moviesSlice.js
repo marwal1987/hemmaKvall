@@ -5,28 +5,51 @@ const apikey = import.meta.env.VITE_OMDB_API_KEY;
 
 // Gör en separat fetch för varje film för att hämta fullständig data
 const fetchMovieDetails = async (imdbID) => {
-  const response = await fetch(
-    `http://www.omdbapi.com/?i=${imdbID}&apikey=${apikey}&plot=full`
-  );
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `http://www.omdbapi.com/?i=${imdbID}&apikey=${apikey}&plot=full`
+    );
+
+    if (!response.ok) {
+      throw new Error(`Error fetching movie details: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error(`Error fetching movie details: ${error.message}`);
+  }
 };
 
 // Fetch alla filmer baserat på sökterm och hämta fullständig data för varje film
 export const fetchMoviesBySearchTerm = createAsyncThunk(
   "movies/fetchAll",
   async (query) => {
-    const response = await fetch(
-      `http://www.omdbapi.com/?s=${query}&apikey=${apikey}`
-    );
-    const data = await response.json();
+    try {
+      const response = await fetch(
+        `http://www.omdbapi.com/?s=${query}&apikey=${apikey}`
+      );
 
-    // Hämta fullständig info för varje film i sökresultatet
-    const detailedMovies = await Promise.all(
-      data.Search.map((movie) => fetchMovieDetails(movie.imdbID))
-    );
+      if (!response.ok) {
+        throw new Error(`Error fetching movies: ${response.statusText}`);
+      }
 
-    return detailedMovies; // Returnera filmer med fullständig information
+      const data = await response.json();
+
+      // Kontrollera om data finns
+      if (!data.Search) {
+        throw new Error("No movies found");
+      }
+
+      // Hämta fullständig info för varje film i sökresultatet
+      const detailedMovies = await Promise.all(
+        data.Search.map((movie) => fetchMovieDetails(movie.imdbID))
+      );
+
+      return detailedMovies; // Returnera filmer med fullständig information
+    } catch (error) {
+      throw new Error(`Error fetching movies: ${error.message}`);
+    }
   }
 );
 
