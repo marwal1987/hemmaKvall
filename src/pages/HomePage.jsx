@@ -5,6 +5,7 @@ import SearchBar from "../components/SearchBar";
 import HeroSection from "../components/HeroSection";
 import MovieCard from "../components/MovieCard";
 import Modal from "../components/Modal";
+import MetaTags from "../components/MetaTags";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,11 @@ const HomePage = () => {
 
   return (
     <section className="w-svw min-h-svh bg-gradient-to-tr from-emerald-500 to-gray-400 flex flex-col items-center justify-center p-6">
+      <MetaTags
+        title="Hem - HemmaKväll"
+        description="Upptäck de senaste och bästa filmerna hos HemmaKväll. Skapa din egen favoritsamling och njut av en smidig upplevelse med enkel navigering. Perfekt för filmälskare!"
+      />
+
       <HeroSection />
       <SearchBar onSearch={handleSearch} />
       <div className="grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4 ">
