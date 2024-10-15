@@ -7,7 +7,7 @@ const Modal = ({ movie, onClose }) => {
           alt={movie.Title}
           className="rounded-md w-full"
         />
-        <div className="max-w-96 flex flex-col items-start justify-start gap-2">
+        <div className="max-w-96 flex flex-col items-start justify-start gap-4">
           <h2 className="text-left">{movie.Title}</h2>
           <p className="text-left">
             <strong>Year:</strong> {movie.Year}

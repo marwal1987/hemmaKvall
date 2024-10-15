@@ -1,15 +1,28 @@
 import { useDispatch } from "react-redux";
-import { addFavorite, removeFavorite } from "../store/slices/favoritesSlice"; // Se till att detta importeras korrekt
+import { addFavorite, removeFavorite } from "../store/slices/favoritesSlice";
+import TagManager from "react-gtm-module";
 
-const MovieCard = ({ movie, isFavorite, onRemoveFavorite, onClick }) => {
+
+const MovieCard = ({ movie, isFavorite, onClick }) => {
   const dispatch = useDispatch();
 
   const handleFavoriteToggle = () => {
     if (isFavorite) {
       dispatch(removeFavorite(movie));
-      if (onRemoveFavorite) onRemoveFavorite(); // Om det är en favorit, ta bort
+      TagManager.dataLayer({
+        dataLayer: {
+          event: 'remove_favorite',
+          movieTitle: movie.Title
+        }
+      });
     } else {
-      dispatch(addFavorite(movie)); // Annars, lägg till
+      dispatch(addFavorite(movie));
+      TagManager.dataLayer({
+        dataLayer: {
+          event: 'add_favorite',
+          movieTitle: movie.Title
+        }
+      });
     }
   };
 
@@ -21,7 +34,7 @@ const MovieCard = ({ movie, isFavorite, onRemoveFavorite, onClick }) => {
         <h2 className="text-lg text-gray-950 font-bold drop-shadow">
           {movie.Title}
         </h2>
-        <p className="text-gray-950 text-md">År: {movie.Year}</p>
+        <p className="text-gray-950 text-sm">År: {movie.Year}</p>
       </div>
 
       <button
