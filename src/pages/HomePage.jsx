@@ -37,7 +37,7 @@ const HomePage = () => {
   };
 
   return (
-    <section className="w-svw min-h-svh bg-gradient-to-tr from-emerald-500 to-gray-400 flex flex-col items-center justify-center p-6">
+    <section className="w-svw min-h-svh flex flex-col items-center justify-start">
       <MetaTags
         title="Hem - HemmaKväll"
         description="Upptäck de senaste och bästa filmerna hos HemmaKväll. Skapa din egen favoritsamling och njut av en smidig upplevelse med enkel navigering. Perfekt för filmälskare!"
@@ -45,7 +45,7 @@ const HomePage = () => {
 
       <HeroSection />
       <SearchBar onSearch={handleSearch} />
-      <div className="grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4 ">
+      <div className="grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4 p-6">
         {status === "loading" && <h2>Laddar filmer...</h2>}
         {movies.length > 0
           ? movies.map((movie) => (

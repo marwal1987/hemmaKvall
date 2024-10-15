@@ -34,7 +34,7 @@ h2 {
 }
 
 p {
-  @apply leading-relaxed text-center text-sm;
+  @apply leading-relaxed text-center text-lg;
 }
 
 footer {
