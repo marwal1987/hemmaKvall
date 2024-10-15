@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 main {
-  @apply flex flex-col items-center;
+  @apply flex flex-col items-center justify-start;
 }
 
 header {
@@ -15,7 +15,14 @@ header ul {
 }
 
 header a {
-  @apply hover:underline;
+  @apply hover:underline hover:text-white;
+}
+
+.active-link {
+  @apply text-white underline;
+}
+.inactive-link {
+  @apply text-gray-400;
 }
 
 h1 {

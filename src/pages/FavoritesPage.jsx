@@ -21,8 +21,8 @@ const FavoritesPage = () => {
   };
 
   return (
-    <section className="p-12">
-      <h1 className="text-2xl font-bold mb-4">Dina Favoriter</h1>
+    <section className="w-svw min-h-svh  bg-gradient-to-tr from-emerald-500 to-gray-400 flex flex-col items-center justify-start gap-12 p-6">
+      <h1 className="">Dina Favoriter</h1>
       {favorites.length === 0 ? (
         <p>Inga favoriter tillagda.</p>
       ) : (

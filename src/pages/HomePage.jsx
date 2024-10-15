@@ -36,11 +36,11 @@ const HomePage = () => {
   };
 
   return (
-    <section className="w-svw min-h-svh bg-slate-200 flex flex-col items-center justify-center">
+    <section className="w-svw min-h-svh bg-gradient-to-tr from-emerald-500 to-gray-400 flex flex-col items-center justify-center p-6">
       <HeroSection />
       <SearchBar onSearch={handleSearch} />
-      <div className="grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4 p-6">
-        {status === "loading" && <p>Laddar filmer...</p>}
+      <div className="grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4 ">
+        {status === "loading" && <h2>Laddar filmer...</h2>}
         {movies.length > 0
           ? movies.map((movie) => (
               <MovieCard
