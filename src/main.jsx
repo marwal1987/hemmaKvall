@@ -13,7 +13,7 @@ const GTM_ID = import.meta.env.VITE_GTM_ID;
 const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
 TagManager.initialize({
-  gtmId: GTM_ID, // Replace with your GTM ID
+  gtmId: GTM_ID,
 });
 
 ReactGA.initialize(GA_MEASUREMENT_ID);
