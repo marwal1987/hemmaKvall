@@ -9,10 +9,10 @@ import MetaTags from "../components/MetaTags";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { movies, status } = useSelector((state) => state.movies); // Ta bort selectedMovie
+  const { movies, status } = useSelector((state) => state.movies);
   const favorites = useSelector((state) => state.favorites.favoritesList);
   const [showModal, setShowModal] = useState(false);
-  const [selectedMovie, setSelectedMovie] = useState(null); // Nytt state för vald film
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   // Trigga hämtning av filmer vid sökning
   const handleSearch = (searchTerm) => {
@@ -26,14 +26,14 @@ const HomePage = () => {
 
   // Öppna modal med den valda filmen
   const openModal = (movie) => {
-    setSelectedMovie(movie); // Sätt den valda filmen
+    setSelectedMovie(movie);
     setShowModal(true);
   };
 
-  // Stäng modalen
+  // Stäng modalen och rensa vald film
   const closeModal = () => {
-    setShowModal(false); // Stäng modalen
-    setSelectedMovie(null); // Rensa vald film
+    setShowModal(false); 
+    setSelectedMovie(null);
   };
 
   return (

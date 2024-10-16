@@ -11,7 +11,7 @@ const favoritesSlice = createSlice({
         (movie) => movie.imdbID === action.payload.imdbID
       );
       if (!movieExists) {
-        state.favoritesList.push({ ...action.payload });
+        state.favoritesList.push(action.payload);
       }
     },
     removeFavorite: (state, action) => {

@@ -10,6 +10,7 @@ import ReactGA from "react-ga4";
 function App() {
   const location = useLocation();
 
+  // Kör useEffect när användaren byter sida
   useEffect(() => {
     ReactGA.send({ hitType: "pageview", page: location.pathname });
   }, [location]);

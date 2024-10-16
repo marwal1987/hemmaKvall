@@ -2,25 +2,27 @@ import { useDispatch } from "react-redux";
 import { addFavorite, removeFavorite } from "../store/slices/favoritesSlice";
 import TagManager from "react-gtm-module";
 
-
 const MovieCard = ({ movie, isFavorite, onClick }) => {
   const dispatch = useDispatch();
 
   const handleFavoriteToggle = () => {
     if (isFavorite) {
       dispatch(removeFavorite(movie));
+      // Skicka GTM event för 'ta bort favorit'
       TagManager.dataLayer({
         dataLayer: {
-          event: 'remove_favorite',
-          movieTitle: movie.Title
-        }
+          event: "remove_favorite",
+          movieTitle: movie.Title,
+          movieId: movie.imdbID,
+        },
       });
     } else {
       dispatch(addFavorite(movie));
-      TagManager.dataLayer({
+      TagManager.dataLayer({ // Skicka GTM event för 'lägga till favorit'
         dataLayer: {
-          event: 'add_favorite',
-          movieTitle: movie.Title
+          event: "add_favorite",
+          movieTitle: movie.Title,
+          movieId: movie.imdbID
         }
       });
     }

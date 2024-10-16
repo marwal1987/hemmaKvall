@@ -22,15 +22,15 @@ const FavoritesPage = () => {
   };
 
   return (
-    <section className="w-svw min-h-svh  bg-gradient-to-tr from-emerald-500 to-gray-400 flex flex-col items-center justify-start gap-12 p-6">
+    <section className="w-svw min-h-svh  flex flex-col items-center justify-start gap-12">
       <MetaTags
         title="Favoriter - HemmaKväll"
         description="Samla dina favoritfilmer på ett ställe med HemmaKväll. Se, hantera och njut av dina favoritfilmer enkelt och snabbt."
       />
 
-      <h1 className="">Dina Favoriter</h1>
+      <h1 className="p-24 bg-gradient-to-br from-emerald-400 to-gray-400 w-full drop-shadow-xl" >Dina Favoriter</h1>
       {favorites.length === 0 ? (
-        <p>Inga favoriter tillagda.</p>
+        <h2>Inga favoriter tillagda.</h2>
       ) : (
         <ul className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 ">
           {favorites.map((movie) => (

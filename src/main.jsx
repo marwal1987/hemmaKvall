@@ -12,13 +12,17 @@ import ReactGA from "react-ga4";
 const GTM_ID = import.meta.env.VITE_GTM_ID;
 const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
-TagManager.initialize({
+
+
+const tagManagerArgs = {
   gtmId: GTM_ID,
-});
+};
 
+// Initialisera Google Tag Manager
+TagManager.initialize(tagManagerArgs);
+
+// Initialisera Google Analytics
 ReactGA.initialize(GA_MEASUREMENT_ID);
-
-ReactGA.send({ hitType: "pageview", page: window.location.pathname });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
