@@ -27,7 +27,7 @@ const MovieCard = ({ movie, isFavorite, onClick }) => {
   };
 
   return (
-    <article className="container flex flex-col justify-between p-8 gap-4 items-center shadow-md bg-stone-50">
+    <li className="container flex flex-col justify-between p-8 gap-4 items-center shadow-md bg-stone-50">
       <img src={movie.Poster} alt={movie.Title} className="max-h-80" />
 
       <div>
@@ -52,7 +52,7 @@ const MovieCard = ({ movie, isFavorite, onClick }) => {
       >
         Visa mer
       </button>
-    </article>
+    </li>
   );
 };
 

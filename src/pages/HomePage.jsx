@@ -45,8 +45,8 @@ const HomePage = () => {
 
       <HeroSection />
       <SearchBar onSearch={handleSearch} />
-      <div className="grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4 p-6">
-        {status === "loading" && <h2>Laddar filmer...</h2>}
+      <ul className="movie-list grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4 p-6">
+        {status === "loading" && <p>Laddar filmer...</p>}
         {movies.length > 0
           ? movies.map((movie) => (
               <MovieCard
@@ -57,7 +57,7 @@ const HomePage = () => {
               />
             ))
           : status === "succeeded" && <p>Inga filmer hittades.</p>}
-      </div>
+      </ul>
       {showModal && selectedMovie && (
         <Modal movie={selectedMovie} onClose={closeModal} />
       )}
