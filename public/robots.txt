@@ -1,6 +1,4 @@
 User-agent: *
-Disallow: /admin/
-Disallow: /login/
 Allow: /
 
 Sitemap: https://www.hemmaKvallDatabas.com/sitemap.xml
