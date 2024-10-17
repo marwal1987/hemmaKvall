@@ -2,13 +2,24 @@ import { useDispatch } from "react-redux";
 import { addFavorite, removeFavorite } from "../store/slices/favoritesSlice";
 import TagManager from "react-gtm-module";
 
+/**
+ * MovieCard Komponent
+ * 
+ * Visar en kort med filmens information och ger möjligheten att lägga till/ta bort filmen som favorit eller öppna en modaldialog för mer information om filmen.
+ * 
+ * Props:
+ * - movie: Objekt som innehåller information om filmen (titel, år, poster, etc.)
+ * - isFavorite: Boolean som anger om filmen redan är markerad som favorit
+ * - onClick: Callback-funktion som anropas när användaren klickar på "Visa mer"-knappen
+ */
+
 const MovieCard = ({ movie, isFavorite, onClick }) => {
   const dispatch = useDispatch();
 
+  // Hanterar logiken för att lägga till eller ta bort en favorit och skickar händelser till Google Tag Manager (GTM)
   const handleFavoriteToggle = () => {
     if (isFavorite) {
       dispatch(removeFavorite(movie));
-      // Skicka GTM event för 'ta bort favorit'
       TagManager.dataLayer({
         dataLayer: {
           event: "remove_favorite",
@@ -18,7 +29,7 @@ const MovieCard = ({ movie, isFavorite, onClick }) => {
       });
     } else {
       dispatch(addFavorite(movie));
-      TagManager.dataLayer({ // Skicka GTM event för 'lägga till favorit'
+      TagManager.dataLayer({
         dataLayer: {
           event: "add_favorite",
           movieTitle: movie.Title,

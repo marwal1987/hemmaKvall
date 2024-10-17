@@ -1,3 +1,13 @@
+/**
+ * Modal Komponent
+ * 
+ * Denna komponent visar en modaldialog med detaljerad information om en film.
+ * 
+ * Props:
+ * - movie: Ett objekt som innehåller information om filmen som ska visas (titel, år, genre, beskrivning, poster)
+ * - onClose: Callback-funktion som används för att stänga modalen när användaren klickar på "Stäng"-knappen
+ */
+
 const Modal = ({ movie, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center overflow-y-auto p-4">

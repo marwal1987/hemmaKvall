@@ -1,17 +1,20 @@
-# Hemmakväll
+# Hemmakvall
 
 ## Introduction
 
 #### Project Name:
+
 HemmaKvall
 
 #### Description
-A movie browsing platform allowing users to search and mark favorite movies provided by the OMDB-API. 
+
+A movie browsing platform allowing users to search and mark favorite movies provided by the OMDB-API.
 https://www.omdbapi.com/
 
-#### Built with React, Redux, and Cypress for testing.
+### Built with React, Redux Toolkit, Vite, and Cypress for testing.
 
 #### Main Features:
+
 - Movie search functionality.
 - Favorites management (add/remove movies from favorites).
 - Modal for detailed movie views.
@@ -20,12 +23,14 @@ https://www.omdbapi.com/
 - Cypress tests for the homepage aka "/".
 
 #### Tech Stack:
+
 - Frontend: React, Tailwind CSS
-- State Management: Redux (RTK)
+- State Management: Redux Toolkit (RTK)
 - Testing: Cypress
 - Build Tool: Vite
 
 #### Deployment:
+
 - Configurable for various environments.
 
 ## Getting Started
@@ -57,7 +62,18 @@ npm install
 npm run dev
 ```
 
-**5. Open your browser and navigate to http://localhost:5173/**
+**5. Create an `.env`-fil in your root directory:**
+This file stores sensitive information. Make sure it is added in your `.gitignore` aswell.
+
+Add following keys:
+
+```
+VITE_OMDB_API_KEY=your_api_key
+VITE_GTM_ID=your_gtm_id
+VITE_GA_MEASUREMENT_ID=your_ga_measurement_id
+```
+
+**6. Open your browser and navigate to http://localhost:5173/**
 
 ## Folder Structure
 
@@ -111,7 +127,7 @@ The project uses `react-helmet-async` to dynamically manage metadata such as pag
 The project uses Google Analytics to track user behavior and Google Tag Manager to manage analytics and other tags dynamically.
 
 **Google Analytics (GA4):**
-Google Analytics is integrated using the react-ga4 package to track user interactions and page views throughout the application.
+Google Analytics is integrated using the react-ga4 package to track page views throughout the application.
 
 - Initialization in main.jsx: Google Analytics is initialized with the GA4 measurement ID.
   Automatic Page Tracking: ReactGA.send is used to send page view events on every route change.
@@ -122,6 +138,8 @@ Google Analytics is integrated using the react-ga4 package to track user interac
 
 - Initialization in main.jsx
   Google Tag Manager is initialized using the GTM ID, enabling the addition of future tracking tags without modifying the core application.
+
+- Used in MovieCard for adding and removing favorites
 
 ## Testing with Cypress:
 
@@ -163,10 +181,12 @@ npm run build
 
 _The output will be in the /dist folder._
 
-## IMPORTANT NOTES!:
+## IMPORTANT NOTES!
+
+As explained in **step 5** in the installation process:
 
 - To use the API you will need an API-key. Register your email (FREE, 1000 daily limit) at the following link: https://www.omdbapi.com/
 
 - Google Analytics and Google Tag Manger also uses keys/id's. You will have to create your own account and create your own tags and flows and what not, to make it work.
 
-- Sitemap.xml and robots.txt files URL, is pointing at localhost:5173. Replace this with the actual webbadress for your website before going live.
+- Sitemap.xml and robots.txt files URL, is pointing at localhost:5173. Replace this with the actual domain for your website before going live.

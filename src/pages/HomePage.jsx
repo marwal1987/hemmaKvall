@@ -7,6 +7,16 @@ import MovieCard from "../components/MovieCard";
 import Modal from "../components/Modal";
 import MetaTags from "../components/MetaTags";
 
+/**
+ * HomePage Komponent
+ * 
+ * Visar en startsida där användare kan söka efter filmer och hantera sina favoriter.
+ * 
+ * State:
+ * - showModal: Boolean som kontrollerar om modalen ska visas
+ * - selectedMovie: Innehåller den valda filmen för att visa i modalen
+ */
+
 const HomePage = () => {
   const dispatch = useDispatch();
   const { movies, status } = useSelector((state) => state.movies);
@@ -14,23 +24,20 @@ const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-  // Trigga hämtning av filmer vid sökning
+  // Trigga hämtning av filmer vid sökning - data i 'searchTerm' kommer från Searchbar-komponenten
   const handleSearch = (searchTerm) => {
     dispatch(fetchMoviesBySearchTerm(searchTerm));
   };
 
-  // Kontrollera om en film är en favorit
   const isMovieFavorite = (movie) => {
     return favorites.some((fav) => fav.imdbID === movie.imdbID);
   };
 
-  // Öppna modal med den valda filmen
   const openModal = (movie) => {
     setSelectedMovie(movie);
     setShowModal(true);
   };
 
-  // Stäng modalen och rensa vald film
   const closeModal = () => {
     setShowModal(false); 
     setSelectedMovie(null);
@@ -53,7 +60,7 @@ const HomePage = () => {
                 key={movie.imdbID}
                 movie={movie}
                 isFavorite={isMovieFavorite(movie)}
-                onClick={() => openModal(movie)} // Skicka hela filmobjektet till openModal
+                onClick={() => openModal(movie)} // Skicka hela filmobjektet till openModal -> Öppna modalen med filmens detaljer
               />
             ))
           : status === "succeeded" && <p>Inga filmer hittades.</p>}

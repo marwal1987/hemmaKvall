@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // Hämta API-nyckeln från .env
 const apikey = import.meta.env.VITE_OMDB_API_KEY;
 
-// Gör en separat fetch för varje film för att hämta fullständig data
+// Hämtar detaljerad information om en film från OMDB baserat på imdbID.
 const fetchMovieDetails = async (imdbID) => {
   try {
     const response = await fetch(
@@ -21,7 +21,7 @@ const fetchMovieDetails = async (imdbID) => {
   }
 };
 
-// Fetch alla filmer baserat på sökterm och hämta fullständig data för varje film
+// Hämtar filmer från OMDB baserat på användarens sökterm.
 export const fetchMoviesBySearchTerm = createAsyncThunk(
   "movies/fetchAll",
   async (query) => {
@@ -53,6 +53,17 @@ export const fetchMoviesBySearchTerm = createAsyncThunk(
   }
 );
 
+/**
+ * moviesSlice
+ *
+ * Hanterar filmrelaterad data, inklusive status och eventuella fel.
+ *
+ * Hanterar tre lägen:
+ * - pending (när hämtningen pågår)
+ * - fulfilled (när filmerna har hämtats)
+ * - rejected (när något gick fel)
+ */
+
 const moviesSlice = createSlice({
   name: "movies",
   initialState: {
@@ -76,4 +87,5 @@ const moviesSlice = createSlice({
   },
 });
 
+// Exportera reducer för att inkludera i Redux-storen
 export default moviesSlice.reducer;

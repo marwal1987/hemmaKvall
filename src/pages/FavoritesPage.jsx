@@ -4,8 +4,19 @@ import MovieCard from "../components/MovieCard";
 import Modal from "../components/Modal";
 import MetaTags from "../components/MetaTags";
 
+/**
+ * FavoritesPage Komponent
+ * 
+ * Visar en sida med användarens favoritfilmer. 
+ * Låter användaren se detaljer om en specifik film via en modal.
+ * 
+ * State:
+ * - showModal: Boolean som kontrollerar om modalen visas.
+ * - selectedMovie: Innehåller den valda filmen för att visa detaljer i modalen.
+ */
+
 const FavoritesPage = () => {
-  const favorites = useSelector((state) => state.favorites.favoritesList);
+  const favorites = useSelector((state) => state.favorites.favoritesList); // Hämtar listan av favoritfilmer från Redux state
   const [showModal, setShowModal] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
@@ -38,7 +49,7 @@ const FavoritesPage = () => {
               key={movie.imdbID}
               movie={movie}
               isFavorite={true}
-              onClick={() => openModal(movie)}
+              onClick={() => openModal(movie)} // Skicka hela filmobjektet till openModal -> Öppna modalen med filmens detaljer
             />
           ))}
         </ul>

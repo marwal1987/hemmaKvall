@@ -8,12 +8,12 @@ import { useLocation } from "react-router-dom";
 import ReactGA from "react-ga4";
 
 function App() {
-  const location = useLocation();
+  const location = useLocation(); // Få aktuell URL-position från React Router
 
-  // Kör useEffect när användaren byter sida
+  // Skicka pageview till Google Analytics varje gång URL:en ändras
   useEffect(() => {
     ReactGA.send({ hitType: "pageview", page: location.pathname });
-  }, [location]);
+  }, [location]); // Denna effekt körs varje gång "location" ändras (navigering)
 
   return (
     <>
