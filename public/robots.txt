@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.hemmaKvallDatabas.com/sitemap.xml
+Sitemap: https://localhost:5173/sitemap.xml
 

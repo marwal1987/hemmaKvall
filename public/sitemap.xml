@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- HomePage -->
   <url>
-    <loc>https://www.hemmaKvallDatabas.com/</loc>
+    <loc>https://localhost:5173/</loc>
     <lastmod>2024-10-15</lastmod>
     <priority>1.0</priority>
   </url>
 
   <!-- FavoritesPage -->
   <url>
-    <loc>https://www.hemmaKvallDatabas.com/favorites</loc>
+    <loc>https://localhost:5173/favorites</loc>
     <lastmod>2024-10-15</lastmod>
     <priority>0.8</priority>
   </url>
